@@ -1,5 +1,7 @@
 Arvi::Application.routes.draw do
-  get "home/index"
+  resources :vaatimus
+
+  root :to => "home#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

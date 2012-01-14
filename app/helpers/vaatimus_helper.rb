@@ -1,0 +1,2 @@
+module VaatimusHelper
+end
