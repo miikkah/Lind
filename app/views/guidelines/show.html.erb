@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @guideline.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @guideline.description %>
+</p>
+
+<p>
+  <b>Profiles:</b>
+  <%= @guideline.profiles %>
+</p>
+
+
+<%= link_to 'Edit', edit_guideline_path(@guideline) %> |
+<%= link_to 'Back', guidelines_path %>

@@ -1,5 +1,5 @@
 Arvi::Application.routes.draw do
-  resources :vaatimus
+  resources :guidelines
 
   root :to => "home#index"
 
