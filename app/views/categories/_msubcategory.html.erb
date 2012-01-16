@@ -1,0 +1,20 @@
+<li>
+  <table><tr><td style="vertical-align: middle">
+    <% if msubcategory.subcategories.empty? && @showing_category.to_s != msubcategory.id.to_s %><a href="/m/guidelines/category/<%= msubcategory.id %>"><% end %>
+    <% if msubcategory.subcategories.empty? %>
+    <img src="/assets/tree_arrow.png">
+    <% end %>
+    <% if msubcategory.subcategories.empty? && @showing_category.to_s != msubcategory.id.to_s %></a><% end %>
+  </td><td style="height: 36px; vertical-align: middle;<% if !msubcategory.subcategories.empty? %> font-size: 16px; font-weight: bold;<% end %>">
+    <% if msubcategory.subcategories.empty? && @showing_category.to_s != msubcategory.id.to_s %><a href="/m/guidelines/category/<%= msubcategory.id %>"><% end %>
+    <% if @showing_category.to_s == msubcategory.id.to_s %><b style="color: #448ccb"><% end %>
+      <%= (msubcategory.name + ' ').strip! %>
+    <% if @showing_category.to_s == msubcategory.id.to_s %></b><% end %>
+    <% if msubcategory.subcategories.empty? && @showing_category.to_s != msubcategory.id.to_s %></a><% end %>
+  </td></tr></table>
+</li>
+<% unless msubcategory.subcategories.empty? %>
+<ul>
+  <%= render :partial => "categories/msubcategory", :format => "text", :collection => msubcategory.subcategories %>
+</ul>
+<% end %>

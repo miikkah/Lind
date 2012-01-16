@@ -12,12 +12,20 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :guidelineType %><br />
+    <%= f.number_field :guidelineType %>
+  </div>
+  <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
+    <%= f.label :description1 %><br />
+    <%= f.text_field :description1 %>
+  </div>
+  <div class="field">
+    <%= f.label :description2 %><br />
+    <%= f.text_field :description2 %>
   </div>
   <div class="field">
     <%= f.label :profiles %><br />

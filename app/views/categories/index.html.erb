@@ -1,0 +1,3 @@
+<div class="m-category-tree">
+  <%= render Category.where(:parentId => nil), :locals => { :platform => 'm' } %>
+</div>

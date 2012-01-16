@@ -1,11 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
+  guidelineType: 1
   name: MyString
-  description: MyString
+  description1: MyString
+  description2: MyString
   profiles: MyString
 
 two:
+  guidelineType: 1
   name: MyString
-  description: MyString
+  description1: MyString
+  description2: MyString
   profiles: MyString

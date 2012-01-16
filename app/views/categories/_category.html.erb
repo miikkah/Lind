@@ -1,0 +1,9 @@
+<% unless category.subcategories.nil? %>
+<ul>
+<% if locals[:platform] == 'm' %>
+<%= render :partial => "categories/msubcategory", :format => "html", :collection => category.subcategories, :locals => locals %>
+<% else %>
+<%= render :partial => "categories/subcategory", :format => "html", :collection => category.subcategories, :locals => locals %>
+<% end %>
+</ul>
+<% end %>

@@ -1,0 +1,189 @@
+<% if @platform == 'm' %>
+  <script>
+  function filterGuidelines() {
+    if ($("#textSearch").val().length == 0) {
+      $("#resultsCount").text($("div.m-guideline").show().length)
+      return;
+    }
+    var searchWords = $("#textSearch").val().split(' ');
+    var searchMatches = [];
+    for (var i in searchWords) {
+      if (searchWords[i].length > 1) {
+        searchMatches.push(new RegExp(searchWords[i], "i"));
+      }
+    }
+    var resultsCount = 0;
+    $("div.m-guideline").each(function() {
+      var searchableText = "";
+      $(this).find("div.m-guideline-name").each(function() {
+        searchableText += $(this).text() + " ";
+      });
+      $(this).find("p").each(function() {
+        searchableText += $(this).text() + " ";
+      });
+      var showThis = true;
+      for (var i in searchMatches) {
+        if (!searchableText.match(searchMatches[i])) {
+          showThis = false;
+          break;
+        }
+      }
+      if (showThis) {
+        resultsCount++;
+        $(this).show();
+      } else {
+        $(this).hide();
+      }
+    });
+    $("#resultsCount").text(resultsCount);
+  }
+  
+  $(function() {
+    $("#resultsCount").text($("div.m-guideline").length)
+  });
+  </script>
+
+  <div style="position: fixed; top: 0px; left: 0px; width: 100%; height: 40px">
+    <div class="m-search-tab" style="height: 40px">
+      <table style="width: 100%">
+        <tr>
+          <td style="vertical-align: middle; text-align: left"><a href="/categories"><img src="/assets/arrow_left.png" style="width: 32px; height: 32px;"></a></td>
+          <td style="vertical-align: middle; text-align: center"><input id="textSearch" class="big" style="width: 80%; float: left" onkeyup="filterGuidelines()"></td>
+          <td style="vertical-align: middle; text-align: center"><span class="result-count" id="resultsCount"></span></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  
+  <div style="width: 100%; height: 60px;">&nbsp;</div>
+  
+  <% @guidelines.each do |guideline| %>
+  <div class="m-section m-guideline">
+    <% for i in 1..guideline.guidelineType do %>
+    <img style="width: 32px; height: 32px; float: left; margin-right: 10px; margin-bottom: 10px;" src="/assets/star.png">
+    <% end %>
+  
+    <div class="guideline-profiles">
+    <% guideline.profiles.split(',').each do |profile| %>
+      <img style="width: 32px; height: 32px; float: right; margin-left: 10px; margin-bottom: 10px;" src="/assets/profile_<%= profile %>.png">
+    <% end %>
+    </div>
+  
+    <div class="m-guideline-name">
+      <%= guideline.name %>
+    </div>
+    
+    <hr class="guideline-divider">
+    
+    <% unless guideline.description1.nil? %>
+    <p style="width: 100%; float: left">
+      <%= guideline.description1 %>
+    </p>
+    <% end %>
+    
+    <% unless guideline.description2.nil? %>
+    <p style="width: 100%; float: left">
+      <%= guideline.description2 %>
+    </p>
+    <% end %>
+  </div>
+  <% end %>
+<% else %>
+<script>
+function filterGuidelines() {
+  if ($("#textSearch").val().length == 0) {
+    $("#resultsCount").text($("div.guideline").show().length)
+    return;
+  }
+  var searchWords = $("#textSearch").val().split(' ');
+  var searchMatches = [];
+  for (var i in searchWords) {
+    if (searchWords[i].length > 1) {
+      searchMatches.push(new RegExp(searchWords[i], "i"));
+    }
+  }
+  var resultsCount = 0;
+  $("div.guideline").each(function() {
+    var searchableText = "";
+    $(this).find("div.guideline-name").each(function() {
+      searchableText += $(this).text() + " ";
+    });
+    $(this).find("p").each(function() {
+      searchableText += $(this).text() + " ";
+    });
+    var showThis = true;
+    for (var i in searchMatches) {
+      if (!searchableText.match(searchMatches[i])) {
+        showThis = false;
+        break;
+      }
+    }
+    if (showThis) {
+      resultsCount++;
+      $(this).show();
+    } else {
+      $(this).hide();
+    }
+  });
+  $("#resultsCount").text(resultsCount);
+}
+
+$(function() {
+  $("#resultsCount").text($("div.guideline").length)
+});
+</script>
+
+<div class="category-tree-wrap-outer">
+  <div class="category-tree-wrap-inner">
+    <div class="category-tree">
+      <%= render Category.where(:parentId => nil), :template => 'categories/index', :locals => { :platform => 'd' } %>
+    </div>
+  </div>
+</div>
+
+<div style="position: fixed; top: 0px; width: 100%">
+  <div class="search-tab">
+    <table style="width: 100%">
+      <tr>
+        <td style="vertical-align: middle; text-align: right; width: 200px; font-size: 18px">Tekstisuodatin:</td>
+        <td style="vertical-align: middle; text-align: center; width: 400px"><input id="textSearch" class="big" style="width: 100%; float: left" onkeyup="filterGuidelines()"></td>
+        <td style="vertical-align: middle; text-align: left; padding-left: 20px;"><span class="result-count" id="resultsCount"></span></td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<div style="width: 100%; height: 60px;">&nbsp;</div>
+
+<% @guidelines.each do |guideline| %>
+<div class="section guideline">
+  <% for i in 1..guideline.guidelineType do %>
+  <img style="width: 48px; height: 48px; float: left; margin-right: 10px; margin-bottom: 10px;" src="/assets/star.png">
+  <% end %>
+
+  <div class="guideline-profiles">
+  <% guideline.profiles.split(',').each do |profile| %>
+    <img style="width: 48px; height: 48px; float: right; margin-left: 10px; margin-bottom: 10px;" src="/assets/profile_<%= profile %>.png">
+  <% end %>
+  </div>
+
+  <div class="guideline-name">
+    <%= guideline.name %>
+  </div>
+  
+  <hr class="guideline-divider">
+  
+  <% unless guideline.description1.nil? %>
+  <p style="width: 100%; float: left">
+    <%= guideline.description1 %>
+  </p>
+  <% end %>
+  
+  <% unless guideline.description2.nil? %>
+  <p style="width: 100%; float: left">
+    <%= guideline.description2 %>
+  </p>
+  <% end %>
+</div>
+<% end %>
+<% end %>

@@ -1,0 +1,8 @@
+<% @categories.each do |category| %>
+<% if category.parentId.nil? %>
+<%= category.name %>
+<% unless category.subcategories.nil? %>
+<%= render :partial => "categories/subcategory", :format => "text", :collection => category.subcategories, :locals => { :indent => 1 } %>
+<% end %>
+<% end %>
+<% end %>

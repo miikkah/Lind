@@ -5,3 +5,41 @@
  *= require_self
  *= require_tree . 
 */
+div.section {
+  z-index: 2;
+  width: 740px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: auto;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+div.navigation img {
+  width: 64px;
+  height: 64px;
+}
+
+div.navigation a:hover {
+  border: 0;
+  text-decoration: none;
+  background: none;
+  opacity: 0.7;
+}
+
+input.big {
+  padding: 5px;
+  font-size: 18px;
+  color: #666666;
+  border: 4px solid #448ccb;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+div.m-section {
+  z-index: 2;
+  text-align: center;
+  margin-bottom: 10px;
+  overflow: auto;
+}

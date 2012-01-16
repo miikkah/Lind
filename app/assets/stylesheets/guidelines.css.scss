@@ -1,3 +1,192 @@
 // Place all the styles related to the Guidelines controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+div.category-tree-wrap-outer {
+  position: fixed;
+  top: 70px;
+  width: 100%;
+}
+
+div.category-tree-wrap-inner {
+  width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div.category-tree {
+  width: 290px;
+  height: 600px;
+  overflow-y: scroll;
+  border: 4px solid #448ccb;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  padding-top: 10px;
+}
+
+div.category-tree a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+div.category-tree a:hover {
+  color: #448ccb;
+  background-color: #ffffff;
+}
+
+div.category-tree ul {
+  margin: 0;
+  padding: 0;
+  margin-left: 10px;
+}
+
+div.category-tree li {
+  list-style-type: none;
+  margin-bottom: 5px;
+}
+
+div.category-tree li img {
+  width: 16px;
+  height: 16px;
+}
+
+div.m-category-tree {
+}
+
+div.m-category-tree a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+div.m-category-tree a:hover {
+  color: #448ccb;
+  background-color: #ffffff;
+}
+
+div.m-category-tree ul {
+  margin: 0;
+  padding: 0;
+  margin-left: 10px;
+}
+
+div.m-category-tree li {
+  height: 40px;
+  line-height: 40px;
+  background-color: rgba(197, 217, 235, 0.5);
+  border: 2px solid #448ccb;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  list-style-type: none;
+  margin-bottom: 5px;
+  padding-left: 5px;
+}
+
+div.m-category-tree li a:hover {
+  background: none;
+}
+
+div.m-category-tree li img {
+  margin-top: 2px;
+  width: 32px;
+  height: 32px;
+}
+
+div.search-tab {
+  background-color: #C5D9EB;
+  width: 800px;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  -webkit-border-bottom-left-radius: 10px;
+  -webkit-border-bottom-right-radius: 10px;
+  -moz-border-radius-bottomleft: 10px;
+  -moz-border-radius-bottomright: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+span.result-count {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 34px;
+  color: #448ccb;
+}
+
+div.guideline {
+  margin-bottom: 20px;
+  border: 4px solid #448ccb;
+  background-color: rgba(255, 255, 255, 0.6);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+div.guideline p {
+  font-size: 16px;
+  text-align: justify;
+}
+
+div.guideline-name {
+  float: left;
+  clear: both;
+  color: #448ccb;
+  width: 100%;
+  text-align: center;
+  font-size: 24px;
+  line-height: 120%;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+hr.guideline-divider {
+  float: left;
+  border: 0;
+  color: #448ccb;
+  background-color: #448ccb;
+  height: 4px;
+  width: 100%;
+}
+
+div.m-guideline {
+  margin-bottom: 20px;
+  border: 4px solid #448ccb;
+  background-color: rgba(255, 255, 255, 0.6);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+div.m-guideline-name {
+  float: left;
+  clear: both;
+  color: #448ccb;
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  line-height: 120%;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+div.m-search-tab {
+  background-color: #C5D9EB;
+  padding: 10px;
+  text-align: center;
+}
+
+div.m-search-tab a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+div.m-search-tab a:hover {
+  color: #448ccb;
+  background: none;
+  opacity: 0.8;
+}

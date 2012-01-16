@@ -1,20 +1,35 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @guideline.name %>
-</p>
+<div class="section">
+  <%= link_to image_tag("arrow_up.png"), guidelines_path %>
+</div>
 
-<p>
-  <b>Description:</b>
-  <%= @guideline.description %>
-</p>
+<div class="section guideline">
+  <% for i in 1..@guideline.guidelineType do %>
+  <img style="width: 64px; height: 64px; float: left; margin-right: 10px; margin-bottom: 10px;" src="/assets/star.png">
+  <% end %>
 
-<p>
-  <b>Profiles:</b>
-  <%= @guideline.profiles %>
-</p>
+  <div class="guideline-profiles">
+  <% @guideline.profiles.split(',').each do |profile| %>
+    <img style="width: 64px; height: 64px; float: right; margin-left: 10px" src="/assets/profile_<%= profile %>.png">
+  <% end %>
+  </div>
 
-
-<%= link_to 'Edit', edit_guideline_path(@guideline) %> |
-<%= link_to 'Back', guidelines_path %>
+  <div class="guideline-name">
+    <%= @guideline.name %>
+  </div>
+  
+  <hr class="guideline-divider">
+  
+  <% unless @guideline.description1.nil? %>
+  <p style="width: 100%; float: left">
+    <%= @guideline.description1 %>
+  </p>
+  <% end %>
+  
+  <% unless @guideline.description2.nil? %>
+  <p style="width: 100%; float: left">
+    <%= @guideline.description2 %>
+  </p>
+  <% end %>
+</div>

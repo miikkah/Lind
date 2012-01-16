@@ -1,0 +1,10 @@
+<% @guidelines.each do |guideline| %>
+<%= guideline.name %> [<%= guideline.profileNames %>]
+  <% unless guideline.description1.nil? %>
+    <%= guideline.description1 %> 
+  <% end %>
+  <% unless guideline.description2.nil? %>
+    <%= guideline.description2 %> 
+  <% end %>
+  
+<% end %>

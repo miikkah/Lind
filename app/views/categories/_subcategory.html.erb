@@ -1,0 +1,21 @@
+<li>
+  <% if subcategory.subcategories.empty? && @showing_category.to_s != subcategory.id.to_s %><a href="/guidelines/category/<%= subcategory.id %>"><% end %>
+    <% if subcategory.subcategories.empty? %>
+      <% if @showing_category.to_s == subcategory.id.to_s %>
+    <img src="/assets/tree_selected.png">
+      <% else %>
+    <img src="/assets/tree_arrow.png">
+      <% end %>
+    <% else %>
+    <img src="/assets/tree_minus.png">
+    <% end %>
+    <% if @showing_category.to_s == subcategory.id.to_s %><b style="color: #448ccb"><% end %>
+      <%= (subcategory.name + ' ').strip! %>
+    <% if @showing_category.to_s == subcategory.id.to_s %></b><% end %>
+  <% if subcategory.subcategories.empty? && @showing_category.to_s != subcategory.id.to_s %></a><% end %>
+</li>
+<% unless subcategory.subcategories.empty? %>
+<ul>
+  <%= render :partial => "categories/subcategory", :format => "text", :collection => subcategory.subcategories %>
+</ul>
+<% end %>

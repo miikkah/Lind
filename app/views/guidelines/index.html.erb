@@ -1,27 +1,31 @@
-<h1>Listing guidelines</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Profiles</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @guidelines.each do |guideline| %>
-  <tr>
-    <td><%= guideline.name %></td>
-    <td><%= guideline.description %></td>
-    <td><%= guideline.profiles %></td>
-    <td><%= link_to 'Show', guideline %></td>
-    <td><%= link_to 'Edit', edit_guideline_path(guideline) %></td>
-    <td><%= link_to 'Destroy', guideline, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+<div class="section guideline">
+  <% for i in 1..guideline.guidelineType do %>
+  <img style="width: 64px; height: 64px; float: left; margin-right: 10px; margin-bottom: 10px;" src="/assets/star.png">
+  <% end %>
+
+  <div class="guideline-profiles">
+  <% guideline.profiles.split(',').each do |profile| %>
+    <img style="width: 64px; height: 64px; float: right; margin-left: 10px" src="/assets/profile_<%= profile %>.png">
+  <% end %>
+  </div>
+
+  <div class="guideline-name">
+    <%= guideline.name %>
+  </div>
+  
+  <hr class="guideline-divider">
+  
+  <% unless guideline.description1.nil? %>
+  <p style="width: 100%; float: left">
+    <%= guideline.description1 %>
+  </p>
+  <% end %>
+  
+  <% unless guideline.description2.nil? %>
+  <p style="width: 100%; float: left">
+    <%= guideline.description2 %>
+  </p>
+  <% end %>
+</div>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Guideline', new_guideline_path %>

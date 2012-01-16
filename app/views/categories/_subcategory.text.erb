@@ -1,0 +1,2 @@
+<%= "  " * indent %>(<%= subcategory.id %>) <%= (subcategory.name + ' ').strip! %>
+<% unless subcategory.subcategories.nil? %><%= render :partial => "categories/subcategory", :format => "text", :collection => subcategory.subcategories, :locals => { :indent => indent + 1 } %><% end %>

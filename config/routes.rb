@@ -1,7 +1,21 @@
 Arvi::Application.routes.draw do
+  resources :categories
+
   resources :guidelines
 
+  match "/guidelines/search/:search" => "guidelines#search", :format => "html"
+  match "/guidelines/search.:format/:search" => "guidelines#search"
+  match "/guidelines/category/:id" => "guidelines#category", :format => "html"
+  match "/guidelines/category.:format/:id" => "guidelines#category"
+  
+  match "/:platform/guidelines/search/:search" => "guidelines#search", :format => "html"
+  match "/:platform/guidelines/search.:format/:search" => "guidelines#search"
+  match "/:platform/guidelines/category/:id" => "guidelines#category", :format => "html"
+  match "/:platform/guidelines/category.:format/:id" => "guidelines#category"
+  
   root :to => "home#index"
+  
+  get '/cli' => "home#cli"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
